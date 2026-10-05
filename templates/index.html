@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MarkItDown — Konverter ke Markdown</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>📄 → 📝 MarkItDown</h1>
+      <p class="subtitle">Drag &amp; drop file untuk mengonversinya ke Markdown</p>
+    </header>
+
+    <main>
+      <div id="dropzone" class="dropzone">
+        <input type="file" id="fileInput" hidden />
+        <div class="dropzone-content" id="dropzoneContent">
+          <div class="dz-icon">⬆️</div>
+          <p><strong>Tarik &amp; lepas file di sini</strong></p>
+          <p class="muted">atau klik untuk memilih file</p>
+          <p class="muted small">Mendukung: PDF, DOCX, PPTX, XLSX, HTML, gambar, audio, CSV, JSON, ZIP, dll.</p>
+        </div>
+      </div>
+
+      <div id="status" class="status hidden"></div>
+
+      <div id="resultBox" class="result hidden">
+        <div class="result-header">
+          <span id="resultFilename"></span>
+          <div class="result-actions">
+            <button id="copyBtn" class="btn btn-secondary">Copy</button>
+            <button id="downloadBtn" class="btn btn-primary">⬇ Download .md</button>
+            <button id="resetBtn" class="btn btn-ghost">Konversi lagi</button>
+          </div>
+        </div>
+        <pre id="resultText" class="result-text"></pre>
+      </div>
+    </main>
+
+    <footer>
+      <p>Powered by <a href="https://github.com/microsoft/markitdown" target="_blank" rel="noopener">microsoft/markitdown</a> · berjalan sepenuhnya di komputer Anda</p>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
